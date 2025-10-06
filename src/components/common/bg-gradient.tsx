@@ -24,7 +24,7 @@ export default function BgGradient({
       {/* ✅ Bottom-right blob */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-100 right-1 lg:top-80 lg:right-15   z-10 transform-gpu overflow-hidden blur-[100px]"
+        className="pointer-events-none absolute top-100 right-1 lg:top-80 lg:right-15  z-10 transform-gpu overflow-hidden blur-[100px]"
       >
         <div
           style={{
