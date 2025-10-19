@@ -15,12 +15,11 @@ import {
   LogOut,
 } from "lucide-react";
 import { NavLink, MobileLink } from "./nav-links";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const mm_iconSize = "20";
-
-  const isLoggedIn = true;
 
   return (
     <nav className=" container flex justify-between py-6 items-center  z-30">
@@ -41,25 +40,29 @@ function Header() {
           <NavLink href="/#pricing">Pricing</NavLink>
         </div>
 
-        {isLoggedIn ? (
+        <SignedIn>
           <div className="px-3">
             <NavLink href="/#dashboard">Dashboard</NavLink>
           </div>
-        ) : undefined}
+        </SignedIn>
       </div>
-      {isLoggedIn ? (
+
+      <SignedIn>
         <div className="hidden md:flex items-center ">
           <Crown size={mm_iconSize} className="mr-4" />
-          <NavLink href="/upload">Upload</NavLink>
-          <NavLink href="/#signin">
-            <LogOut className="ml-4" size={mm_iconSize} />
+          <NavLink className="pr-5" href="/upload">
+            Upload
           </NavLink>
+
+          <UserButton />
         </div>
-      ) : (
+      </SignedIn>
+
+      <SignedOut>
         <div className="hidden md:flex">
-          <NavLink href="/#signin">Sign In</NavLink>
+          <NavLink href="/sign-in">Sign In</NavLink>
         </div>
-      )}
+      </SignedOut>
       <button
         className="md:hidden focus:outline-none p-2 rounded-xl bg-primary text-white  z-30"
         onClick={() => setIsOpen(!isOpen)}
@@ -87,10 +90,12 @@ function Header() {
         </div>
 
         <div className="flex flex-col items-start space-y-4 px-6 py-6">
-          <MobileLink href="/#dashboard" setIsOpen={setIsOpen}>
-            <House size={mm_iconSize} />
-            <p className="px-2.5">Dashboard</p>
-          </MobileLink>
+          <SignedIn>
+            <MobileLink href="/#dashboard" setIsOpen={setIsOpen}>
+              <House size={mm_iconSize} />
+              <p className="px-2.5">Dashboard</p>
+            </MobileLink>
+          </SignedIn>
           <MobileLink href="/#about" setIsOpen={setIsOpen}>
             <User size={mm_iconSize} />
             <p className="px-2.5">About</p>
@@ -103,17 +108,18 @@ function Header() {
             <CircleDollarSign size={mm_iconSize} />
             <p className="px-2.5">Pricing</p>
           </MobileLink>
-          {isLoggedIn ? (
-            <MobileLink href="/signin" setIsOpen={setIsOpen}>
+          <SignedIn>
+            <MobileLink href="/sign-in" setIsOpen={setIsOpen}>
               <LogOut size={mm_iconSize} />
               <p className="px-2.5">Sign Out</p>
             </MobileLink>
-          ) : (
-            <MobileLink href="/signout" setIsOpen={setIsOpen}>
+          </SignedIn>
+          <SignedOut>
+            <MobileLink href="/sign-out" setIsOpen={setIsOpen}>
               <LogIn size={mm_iconSize} />
               <p className="px-2.5">Sign In</p>
             </MobileLink>
-          )}
+          </SignedOut>
         </div>
       </div>
     </nav>
