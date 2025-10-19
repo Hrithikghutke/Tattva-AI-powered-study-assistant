@@ -8,9 +8,14 @@ function DemoSection() {
         <Pizza className="bg-secondary border-1 border-gray-300 rounded-xl w-8 h-8 p-1.5 text-primary backdrop-blur-xl " />
 
         <h3 className="capitalize font-bold text-2xl w-xs lg:text-4xl lg:w-3xl md:text-2xl md:w-2xl">
-          Watch how <span className="text-primary">Tattva’s AI</span> turns your
-          study material into clear,{" "}
-          <span className="text-primary capitalize">time-saving insights</span>{" "}
+          Watch how{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+            Tattva’s AI
+          </span>{" "}
+          turns your study material into clear,{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent capitalize">
+            time-saving insights
+          </span>{" "}
         </h3>
       </div>
     </section>

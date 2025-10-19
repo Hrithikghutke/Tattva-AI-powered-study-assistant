@@ -14,7 +14,7 @@ function HowitWorks() {
       icon: (
         <Newspaper
           size={70}
-          className="bg-card-foreground text-primary p-4 rounded-2xl "
+          className="bg-gradient-to-tr from-primary to-accent text-secondary p-4 rounded-2xl "
         />
       ),
       title: "Upload Document",
@@ -24,7 +24,7 @@ function HowitWorks() {
       icon: (
         <Bot
           size={70}
-          className="bg-card-foreground text-primary p-4 rounded-2xl "
+          className="bg-gradient-to-tr from-primary to-accent text-secondary p-4 rounded-2xl "
         />
       ),
       title: "AI Analysis",
@@ -35,7 +35,7 @@ function HowitWorks() {
       icon: (
         <FileOutput
           size={70}
-          className="bg-card-foreground text-primary p-4 rounded-2xl "
+          className="bg-gradient-to-tr from-primary to-accent text-secondary p-4 rounded-2xl "
         />
       ),
       title: "Upload Document",
@@ -44,7 +44,7 @@ function HowitWorks() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gray-50">
+    <section className="relative overflow-hidden bg-gray-50 py-10">
       <div className="py-12 lg:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 lg:pt-12">
         <GradientBlob
           className="pointer-events-none absolute top-20 left-1 -translate-x-1/2 -z-10 blur-[80px]"
@@ -57,8 +57,10 @@ function HowitWorks() {
           </h2>
           <h3 className="capitalize font-bold  text-2xl  lg:w-3xl md:text-2xl md:w-2xl  lg:text-4xl ">
             Transform any Chapter into{" "}
-            <span className="text-primary ">Easy-to-digest</span> summary in
-            three simple steps.
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent ">
+              Easy-to-digest
+            </span>{" "}
+            summary in three simple steps.
           </h3>
         </div>
 
@@ -76,7 +78,7 @@ function HowitWorks() {
               </p>
 
               {idx < steps.length - 1 && (
-                <div className="relative lg:left-40 md:left-30">
+                <div className="relative lg:left-40 md:left-30 ">
                   <div className="absolute hidden md:block   transform -translate-y-3/1  ">
                     <MoveRight
                       size={32}
